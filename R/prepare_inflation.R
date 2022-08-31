@@ -38,7 +38,7 @@ inflation <- inflation_raw %>%
     perception = ifelse(P_all == 99.0, NA, P_all),
     expectation = ifelse(E1y_all == 99.0, NA, P_all),
     # first four characters are year, convert to date
-    year = ymd(str_c(str_sub(yyyyqq, 1, 4), "-01-01")),
+    year = ymd(str_usethis::gh_token_help()c(str_sub(yyyyqq, 1, 4), "-01-01")),
     # last two characters are quarters, convert to number
     quarter = as.numeric(str_sub(yyyyqq, 5, 6)),
     # calculate date as first day of the quarter 
